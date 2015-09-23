@@ -11,12 +11,12 @@ GitHub.
 
 1.  Make a folder called 'poshi-demo' with a folder inside of it called 'src'.
 
-<img src="../../develop/tutorials/images/poshi-folder-structure-1.png" />
+    <img src="../../develop/tutorials/images/poshi-folder-structure-1.png" />
 
 
 2.  Write a gradle file that will deal with downloading and running poshi tests.
 
-<pre>&lt;definition&gt;
+    <pre>&lt;definition&gt;
   &lt;command name="click"&gt;
     &lt;execute selenium="waitForVisible" argument1="${locator1}" /&gt;
     &lt;execute selenium="click" argument1="${locator1}" /&gt;
@@ -26,7 +26,7 @@ GitHub.
 
 3.  Write 2 function files that will be used in the poshi test.
 
-<pre>&lt;definition&gt;
+    <pre>&lt;definition&gt;
   &lt;command name="click"&gt;
     &lt;execute selenium="waitForVisible" argument1="${locator1}" /&gt;
     &lt;execute selenium="click" argument1="${locator1}" /&gt;

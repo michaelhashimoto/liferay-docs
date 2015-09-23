@@ -11,7 +11,7 @@ GitHub.
 
 1.  Make a folder called 'poshi-demo' with a folder inside of it called 'src'.
 
-<img src="" />
+<img src="../../develop/tutorials/images/poshi-folder-structure.png" />
 
 
 2.  Write a gradle file that will deal with downloading and running poshi tests.

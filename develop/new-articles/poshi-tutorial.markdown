@@ -15,7 +15,7 @@ GitHub.
 
 2.  Write a gradle file that will deal with downloading and running poshi tests.
 
-    <pre>/home/liferay/Documents/poshi-demo/build.gradle</pre>
+    <h5>/home/liferay/Documents/poshi-demo/build.gradle</h5>
 
     <pre>buildscript {
         repositories {
@@ -46,14 +46,34 @@ GitHub.
 
 3.  Write 2 function files that will be used in the poshi test.
 
-    <pre>&lt;definition&gt;
+    <h5>/home/liferay/Documents/poshi-demo/test/Click.function</h5>
+
+    <pre>&lt;definition default="click"&gt;
       &lt;command name="click"&gt;
-        &lt;execute selenium="waitForVisible" argument1="${locator1}" /&gt;
-        &lt;execute selenium="click" argument1="${locator1}" /&gt;
+        &lt;execute selenium="waitForVisible" /&gt;
+        &lt;execute selenium="click" /&gt;
+      &lt;/command&gt;
+    &lt;/definition&gt;</pre>
+
+    <h5>/home/liferay/Documents/poshi-demo/test/Open.function</h5>
+
+    <pre>&lt;definition default="open"&gt;
+      &lt;command name="open"&gt;
+        &lt;execute selenium="open" /&gt;
       &lt;/command&gt;
     &lt;/definition&gt;</pre>
 
 4.  Write 1 testcase file that will run the poshi test.
+
+    <h5>/home/liferay/Documents/poshi-demo/test/Smoke.function</h5>
+
+    <pre>&lt;definition component-name="smoke"&gt;
+      &lt;command name="smoke"&gt;
+        &lt;execute function="Open" locator1="https://www.liferay.com/" /&gt;
+        &lt;execute function="Click" locator1="//a[contains(.,'Products')]" /&gt;
+        &lt;execute function="Click" locator1="//a[contains(.,'Features')]" /&gt;
+      &lt;/command&gt;
+    &lt;/definition&gt;</pre>
 
 5.  Run the poshi test using the following command:
 

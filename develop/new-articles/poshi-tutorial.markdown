@@ -11,6 +11,8 @@ GitHub.
 
 1.  Make a folder called 'poshi-demo' with a folder inside of it called 'src'.
 
+    <h5>/home/liferay/Documents/poshi-demo/test/</h5>
+
     <img src="../../develop/tutorials/images/poshi-folder-structure-1.png" />
 
 2.  Write a gradle file that will deal with downloading and running poshi tests.
@@ -44,7 +46,17 @@ GitHub.
       }</pre>
 
 
-3.  Write 2 function files that will be used in the poshi test.
+3.  Write 3 files that will be used in the poshi test.
+
+    <h5>/home/liferay/Documents/poshi-demo/test/Smoke.function</h5>
+
+    <pre>&lt;definition component-name="smoke"&gt;
+      &lt;command name="smoke"&gt;
+        &lt;execute function="Open" locator1="https://www.liferay.com/" /&gt;
+        &lt;execute function="Click" locator1="//a[contains(.,'Products')]" /&gt;
+        &lt;execute function="Click" locator1="//a[contains(.,'Features')]" /&gt;
+      &lt;/command&gt;
+    &lt;/definition&gt;</pre>
 
     <h5>/home/liferay/Documents/poshi-demo/test/Click.function</h5>
 
@@ -63,19 +75,7 @@ GitHub.
       &lt;/command&gt;
     &lt;/definition&gt;</pre>
 
-4.  Write 1 testcase file that will run the poshi test.
-
-    <h5>/home/liferay/Documents/poshi-demo/test/Smoke.function</h5>
-
-    <pre>&lt;definition component-name="smoke"&gt;
-      &lt;command name="smoke"&gt;
-        &lt;execute function="Open" locator1="https://www.liferay.com/" /&gt;
-        &lt;execute function="Click" locator1="//a[contains(.,'Products')]" /&gt;
-        &lt;execute function="Click" locator1="//a[contains(.,'Features')]" /&gt;
-      &lt;/command&gt;
-    &lt;/definition&gt;</pre>
-
-5.  Run the poshi test using the following command:
+4.  Run the poshi test using the following command:
 
    <pre>gradle runPoshi -PposhiTestName=Smoke</pre>
 

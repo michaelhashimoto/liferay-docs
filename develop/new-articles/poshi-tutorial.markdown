@@ -13,31 +13,51 @@ GitHub.
 
     <img src="../../develop/tutorials/images/poshi-folder-structure-1.png" />
 
-
 2.  Write a gradle file that will deal with downloading and running poshi tests.
 
-    <pre>&lt;definition&gt;
-  &lt;command name="click"&gt;
-    &lt;execute selenium="waitForVisible" argument1="${locator1}" /&gt;
-    &lt;execute selenium="click" argument1="${locator1}" /&gt;
-  &lt;/command&gt;
-&lt;/definition&gt;</pre>
+    <pre>/home/liferay/Documents/poshi-demo/build.gradle</pre>
+
+    <pre>buildscript {
+        repositories {
+          maven {
+            url "http://cdn.repository.liferay.com/nexus/content/groups/public"
+          }
+        }
+
+        dependencies {
+          classpath group: "com.liferay", name: "com.liferay.gradle.plugins.poshi.runner", version: "1.0.8"
+        }
+      }
+
+      repositories {
+        mavenLocal()
+
+        maven {
+          url "http://cdn.repository.liferay.com/nexus/content/groups/public"
+        }
+      }
+
+      apply plugin: "com.liferay.poshi.runner"
+
+      poshiRunner {
+        version = "1.0.18"
+      }</pre>
 
 
 3.  Write 2 function files that will be used in the poshi test.
 
     <pre>&lt;definition&gt;
-  &lt;command name="click"&gt;
-    &lt;execute selenium="waitForVisible" argument1="${locator1}" /&gt;
-    &lt;execute selenium="click" argument1="${locator1}" /&gt;
-  &lt;/command&gt;
-&lt;/definition&gt;</pre>
+      &lt;command name="click"&gt;
+        &lt;execute selenium="waitForVisible" argument1="${locator1}" /&gt;
+        &lt;execute selenium="click" argument1="${locator1}" /&gt;
+      &lt;/command&gt;
+    &lt;/definition&gt;</pre>
 
 4.  Write 1 testcase file that will run the poshi test.
 
 5.  Run the poshi test using the following command:
 
-<pre>gradle runPoshi -PposhiTestName=Smoke</pre>
+   <pre>gradle runPoshi -PposhiTestName=Smoke</pre>
 
 Congratulations! You've written your first poshi test!
 
